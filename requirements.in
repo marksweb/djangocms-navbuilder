@@ -1,0 +1,7 @@
+bump2version
+Django>2.2,<4
+django-cms
+djangocms-attributes-field
+pip-tools
+pre-commit
+wheel

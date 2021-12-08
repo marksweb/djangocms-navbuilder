@@ -1,0 +1,20 @@
+{% load i18n menu_tags cache cms_tags %}
+
+
+<li {{ instance.list_item_attributes_str }}>
+    {% if instance.child_plugin_instances %}
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false"
+        >{{ instance.get_label }}<span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+            {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <a href="{{ instance.get_url }}" {{ instance.link_attributes_str }}>
+            <span>{{ instance.get_label }}</span>
+        </a>
+    {% endif %}
+</li>
